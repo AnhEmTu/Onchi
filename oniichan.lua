@@ -1541,33 +1541,26 @@ spawn(function()
     end
 end)
 
-local AttackList = {"0.100 (Risk)", "0.165", "0.175 (Default)", "0.185", "0.200", "0.300", "0.500", "0.700 (Slow)"}
+local AttackList = {"Tấn công bình thường','Tấn công nhanh','Tấn công siêu nhanh','Tấn công siêu siêu nhanh"}
 
-FastAttackSelected = "0.175 (Default)"
+FastAttackSelected = "Tấn công nhanh"
 Main_Setting:addDropdown("Fast Attack Delay", FastAttackSelected, AttackList, function(Value)
     FastAttackSelected = Value
 end)
 
+
 spawn(function()
     while task.wait() do
-        if FastAttackSelected == "0.100 (Risk)" then
-            FastAttackDelay = 0.1
-        elseif FastAttackSelected == "0.165" then
-            FastAttackDelay = 0.165
-        elseif FastAttackSelected == "0.175 (Default)" then
-            FastAttackDelay = 0.175
-        elseif FastAttackSelected == "0.185" then
-            FastAttackDelay = 0.185
-        elseif FastAttackSelected == "0.200" then
-            FastAttackDelay = 0.2
-        elseif FastAttackSelected == "0.300" then
-            FastAttackDelay = 0.3
-        elseif FastAttackSelected == "0.500" then
-            FastAttackDelay = 0.5
-        elseif FastAttackSelected == "0.700 (Slow)" then
-            FastAttackDelay = 0.7
-        end
-    end
+ 
+	if FastAttackSelected == "Tấn công nhanh" then
+		FastAttackDelay = 0.10
+	elseif FastAttackSelected == "Tấn công bình thường" then
+		FastAttackDelay = 0.2
+		elseif FastAttackSelected == "Tấn công siêu siêu nhanh" then
+		FastAttackDelay = 0.01
+	elseif FastAttackSelected == "Tấn công siêu nhanh" then
+		FastAttackDelay = 0.05
+	end
 end)
 
 --[[// Fast Attack
